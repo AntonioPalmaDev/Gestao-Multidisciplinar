@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  Sistema de Gestão Multidisciplinar - Design System
+  Cores institucionais: Azul profundo (confiança), Verde/Teal (saúde), Âmbar (esporte)
+*/
+
+@layer base {
+  :root {
+    /* Core institutional palette */
+    --background: 210 25% 97%;
+    --foreground: 215 35% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 35% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 35% 15%;
+
+    /* Primary: Deep institutional blue */
+    --primary: 215 60% 25%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary: Professional teal for health/growth */
+    --secondary: 172 50% 35%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted: Subtle backgrounds */
+    --muted: 210 20% 94%;
+    --muted-foreground: 215 20% 45%;
+
+    /* Accent: Sport amber/gold */
+    --accent: 40 95% 50%;
+    --accent-foreground: 215 35% 15%;
+
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 25% 88%;
+    --input: 214 25% 88%;
+    --ring: 215 60% 25%;
+
+    --radius: 0.625rem;
+
+    /* Sidebar - Deep institutional */
+    --sidebar-background: 215 55% 18%;
+    --sidebar-foreground: 210 30% 90%;
+    --sidebar-primary: 172 50% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 45% 25%;
+    --sidebar-accent-foreground: 210 30% 95%;
+    --sidebar-border: 215 40% 25%;
+    --sidebar-ring: 172 50% 45%;
+
+    /* Department colors */
+    --psychology: 280 55% 50%;
+    --psychology-light: 280 55% 95%;
+    --social: 172 50% 40%;
+    --social-light: 172 50% 95%;
+    --pedagogy: 25 85% 55%;
+    --pedagogy-light: 25 85% 95%;
+
+    /* Status colors */
+    --success: 145 65% 40%;
+    --warning: 40 95% 50%;
+    --info: 200 80% 50%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(215 60% 25%), hsl(215 55% 35%));
+    --gradient-sidebar: linear-gradient(180deg, hsl(215 55% 18%), hsl(215 60% 12%));
+    --gradient-hero: linear-gradient(135deg, hsl(215 60% 25%), hsl(172 50% 35%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 25% 98%));
+  }
+
+  .dark {
+    --background: 215 50% 8%;
+    --foreground: 210 30% 95%;
+
+    --card: 215 45% 12%;
+    --card-foreground: 210 30% 95%;
+
+    --popover: 215 45% 12%;
+    --popover-foreground: 210 30% 95%;
+
+    --primary: 172 50% 50%;
+    --primary-foreground: 215 50% 10%;
+
+    --secondary: 215 40% 25%;
+    --secondary-foreground: 210 30% 95%;
+
+    --muted: 215 40% 18%;
+    --muted-foreground: 215 20% 60%;
+
+    --accent: 40 95% 55%;
+    --accent-foreground: 215 50% 10%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 40% 20%;
+    --input: 215 40% 20%;
+    --ring: 172 50% 50%;
+
+    --sidebar-background: 215 55% 8%;
+    --sidebar-foreground: 210 30% 90%;
+    --sidebar-primary: 172 50% 50%;
+    --sidebar-primary-foreground: 215 50% 10%;
+    --sidebar-accent: 215 45% 15%;
+    --sidebar-accent-foreground: 210 30% 95%;
+    --sidebar-border: 215 40% 15%;
+    --sidebar-ring: 172 50% 50%;
+
+    --psychology: 280 55% 60%;
+    --psychology-light: 280 40% 20%;
+    --social: 172 50% 50%;
+    --social-light: 172 40% 20%;
+    --pedagogy: 25 85% 60%;
+    --pedagogy-light: 25 70% 20%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .card-elevated {
+    @apply bg-card rounded-xl border shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+
+  .card-department {
+    @apply bg-card rounded-xl border-l-4 p-5 shadow-sm hover:shadow-md transition-all duration-200;
+  }
+
+  .card-department-psychology {
+    @apply card-department border-l-[hsl(var(--psychology))];
+  }
+
+  .card-department-social {
+    @apply card-department border-l-[hsl(var(--social))];
+  }
+
+  .card-department-pedagogy {
+    @apply card-department border-l-[hsl(var(--pedagogy))];
+  }
+
+  .stat-card {
+    @apply bg-card rounded-xl p-6 border shadow-sm;
+    background: var(--gradient-card);
+  }
+
+  .sidebar-gradient {
+    background: var(--gradient-sidebar);
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .badge-psychology {
+    @apply bg-[hsl(var(--psychology-light))] text-[hsl(var(--psychology))] font-medium;
+  }
+
+  .badge-social {
+    @apply bg-[hsl(var(--social-light))] text-[hsl(var(--social))] font-medium;
+  }
+
+  .badge-pedagogy {
+    @apply bg-[hsl(var(--pedagogy-light))] text-[hsl(var(--pedagogy))] font-medium;
+  }
+
+  .input-field {
+    @apply bg-background border-input focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200;
+  }
+
+  .table-row-hover {
+    @apply hover:bg-muted/50 transition-colors duration-150;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
