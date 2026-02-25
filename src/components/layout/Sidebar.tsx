@@ -29,31 +29,31 @@ interface NavItem {
 const navItems: NavItem[] = [
   { icon: LayoutDashboard, label: 'Dashboard', href: '/dashboard' },
   { icon: Users, label: 'Atletas', href: '/atletas' },
-  { 
-    icon: Brain, 
-    label: 'Psicologia', 
+  {
+    icon: Brain,
+    label: 'Psicologia',
     href: '/psicologia',
     roles: ['admin', 'psicologo', 'gestor'],
     departmentColor: 'psychology'
   },
-  { 
-    icon: Home, 
-    label: 'Serviço Social', 
+  {
+    icon: Home,
+    label: 'Serviço Social',
     href: '/servico-social',
     roles: ['admin', 'assistente_social', 'gestor'],
     departmentColor: 'social'
   },
-  { 
-    icon: GraduationCap, 
-    label: 'Pedagogia', 
+  {
+    icon: GraduationCap,
+    label: 'Pedagogia',
     href: '/pedagogia',
     roles: ['admin', 'pedagogo', 'gestor'],
     departmentColor: 'pedagogy'
   },
   { icon: FileText, label: 'Relatórios', href: '/relatorios' },
-  { 
-    icon: Settings, 
-    label: 'Administração', 
+  {
+    icon: Settings,
+    label: 'Administração',
     href: '/admin',
     roles: ['admin']
   },
@@ -70,17 +70,17 @@ export function Sidebar() {
   });
 
   return (
-    <aside 
+    <aside
       className={cn(
-  "fixed left-0 top-0 h-screen bg-gradient-to-b from-black to-zinc-900 text-sidebar-foreground flex flex-col transition-all duration-300 z-50",
-  collapsed ? "w-20" : "w-64"
-)}
+        "fixed left-0 top-0 h-screen bg-gradient-to-b from-black to-zinc-900 text-sidebar-foreground flex flex-col transition-all duration-300 z-50",
+        collapsed ? "w-20" : "w-64"
+      )}
     >
       {/* Header */}
       <div className="p-4 border-b border-sidebar-border">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0">
-        <img src="/favicon.ico" alt="logo"  />
+            <img src="/favicon.ico" alt="logo" />
           </div>
           {!collapsed && (
             <div className="overflow-hidden">
@@ -95,18 +95,18 @@ export function Sidebar() {
       <nav className="flex-1 overflow-y-auto py-4 px-3">
         <ul className="space-y-1">
           {filteredItems.map((item) => {
-            const isActive = location.pathname === item.href || 
+            const isActive = location.pathname === item.href ||
               (item.href !== '/dashboard' && location.pathname.startsWith(item.href));
-            
+
             return (
               <li key={item.href}>
                 <Link
                   to={item.href}
                   className={cn(
                     "flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 group",
-                    isActive 
-                      ? "bg-sidebar-accent text-sidebar-accent-foreground" 
-                      : "hover:bg-sidebar-accent/50 text-sidebar-foreground/80 hover:text-sidebar-foreground"
+                    isActive
+                      ? "bg-red-700/40 text-red-400"
+                      : "text-sidebar-foreground/80 hover:bg-red-700/30 hover:text-red-400"
                   )}
                 >
                   <item.icon className={cn(
@@ -140,8 +140,7 @@ export function Sidebar() {
           size="sm"
           onClick={signOut}
           className={cn(
-            "w-full justify-start text-sidebar-foreground/80 hover:text-sidebar-foreground hover:bg-sidebar-accent/50",
-            collapsed && "justify-center px-0"
+"w-full justify-start text-sidebar-foreground/80 hover:text-red-400 hover:bg-red-700/30 transition-colors duration-200",            collapsed && "justify-center px-0"
           )}
         >
           <LogOut className="h-4 w-4" />
