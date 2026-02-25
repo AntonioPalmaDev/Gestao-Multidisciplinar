@@ -35,8 +35,7 @@ export function LoginForm({ onToggleMode }: LoginFormProps) {
   return (
     <Card className="w-full max-w-md shadow-elevated border-0 animate-fade-in">
       <CardHeader className="text-center pb-2">
-        <div className="mx-auto mb-4 w-16 h-16 rounded-xl hero-gradient flex items-center justify-center shadow-lg">
-          <Shield className="h-8 w-8 text-primary-foreground" />
+<div className="mx-auto mb-4 w-16 h-16 rounded-xl bg-gradient-to-br from-black to-zinc-900 flex items-center justify-center shadow-lg">          <img src="/public/favicon.ico" alt="logo"  className='w-10 h-11'/>
         </div>
         <CardTitle className="text-2xl font-display">Bem-vindo de volta</CardTitle>
         <CardDescription>

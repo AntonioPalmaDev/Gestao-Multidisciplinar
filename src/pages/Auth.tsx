@@ -27,8 +27,7 @@ export default function Auth() {
       </div>
 
       {/* Right side - Branding */}
-      <div className="hidden lg:flex flex-1 hero-gradient items-center justify-center p-12">
-        <div className="max-w-lg text-center text-primary-foreground">
+<div className="hidden lg:flex flex-1 bg-gradient-to-b from-black to-zinc-900 items-center justify-center p-12">        <div className="max-w-lg text-center text-primary-foreground">
           <h1 className="text-4xl font-display font-bold mb-6">
             Sistema de Gestão Multidisciplinar
           </h1>

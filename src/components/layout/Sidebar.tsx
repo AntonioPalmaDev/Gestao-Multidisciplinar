@@ -72,9 +72,9 @@ export function Sidebar() {
   return (
     <aside 
       className={cn(
-        "fixed left-0 top-0 h-screen sidebar-gradient text-sidebar-foreground flex flex-col transition-all duration-300 z-50",
-        collapsed ? "w-20" : "w-64"
-      )}
+  "fixed left-0 top-0 h-screen bg-gradient-to-b from-black to-zinc-900 text-sidebar-foreground flex flex-col transition-all duration-300 z-50",
+  collapsed ? "w-20" : "w-64"
+)}
     >
       {/* Header */}
       <div className="p-4 border-b border-sidebar-border">
